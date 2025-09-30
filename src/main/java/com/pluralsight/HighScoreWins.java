@@ -4,26 +4,37 @@ import java.util.Scanner;
 import java.util.regex.Pattern;
 
 public class HighScoreWins {
-    public static void main(String[] args) {
-        Scanner Game=new Scanner(System.in);
-        System.out.println("Enter Game score :");
-        String score=Game.nextLine();
-        System.out.println("Home:Visitor|21:9 :");
+    private static Object HighScoreWins;
 
-        System.out.println("Enter Game score :");
-        String game=Game.nextLine();
-        System.out.println("Slytherin:Gryffindor|23:59 :");
+    {
+        Scanner Game = new Scanner(System.in);
+        System.out.println("Enter Game 1 score (format Home:Visitor 21:9):");
+        String score1 = Game.nextLine();
+        System.out.println("Home:Visitor|" + score1);
 
+        System.out.println("Enter Game 2 score(format Slytherin:Gryffindor 23:59:");
+        String score2 = Game.nextLine();
+        System.out.println("Slytherin:Gryffindor|" + score2);
 
-        String HighScoreWins;
-        String[] tokens = Integer.parseInt(Pattern.quote("HighScoreWins));
-        
+        String[] parts1 = score2.split(":");
+        int home1 = Integer.parseInt(parts1[0]);
+        int visitor1 = Integer.parseInt(parts1[1]);
 
-        String HighScoreWins = Game.nextLine();
-        Double.parseDouble(HighScoreWins);
+        String[] parts2 = score1.split(":");
+        int home2 = Integer.parseInt(parts2[0]);
+        int visitor2 = Integer.parseInt(parts2[1]);
 
+        int total1 = home1 = visitor1 + visitor2;
+        int total2 = home2 = visitor2 + visitor1;
 
+        if (total1 > total2) {
+            System.out.println("Game 1 had the highest total score: " + total1);
+        } else if (total1 > total2) {
+            System.out.println("Game 2 had the highest total score: " + total2);
+        } else {
+            System.out.println(" Both games had the same total score: " + total1);
+
+        }
 
 
     }
-}
